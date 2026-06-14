@@ -28,7 +28,7 @@ type MovieListResponse = {
 function App() {
   const fetchMovieList = async () => {
     const API_KEY = import.meta.env.VITE_TMDB_API_KEY
-    let url = ''
+    let url: string
     if (keyword) {
       url = `https://api.themoviedb.org/3/search/movie?query=${keyword}&language=ja&page=1`
     } else {
@@ -67,7 +67,7 @@ function App() {
         .filter((movie) => movie.original_title.includes(keyword))
         .map((movie) => (
           <div key={movie.id}>
-            <h2>{movie.title}</h2>
+            <h2>{movie.original_title}</h2>
             <img
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
               alt={movie.original_title}
